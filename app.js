@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var expressErrorHandler = require('express-error-handler');
 var expressSession = require('express-session');
 var crypto = require('crypto');
-var user = require('./user');
 
 
 var passport = require('passport');
