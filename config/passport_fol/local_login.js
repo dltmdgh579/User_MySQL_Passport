@@ -12,8 +12,8 @@ module.exports = new LocalStrategy({
             if (conn) {
                 conn.release();
             }
-            callback(err, null);
-            return;
+            return done(err);
+            
         }
         var columns = ['id', 'name', 'age'];
         var exec = conn.query("select ?? from users where id = ? and password = ?", 

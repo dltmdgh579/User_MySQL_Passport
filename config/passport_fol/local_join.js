@@ -13,8 +13,7 @@ module.exports = new LocalStrategy({
             if (conn) {
                 conn.release();
             }
-            callback(err, null);
-            return;
+            return done(err);
         }
         var exec = conn.query('select * from users where id=?', [id], function(err, rows){
             conn.release();
