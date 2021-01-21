@@ -24,7 +24,7 @@ module.exports = new LocalStrategy({
             }
             if (rows.length){
                 console.log('exsited user');
-                return done(null, false, {message : '아이디가 이미 있습니다.'});
+                return done(null, false, req.flash('joinMessage', '아이디가 이미 있습니다'));
             }else{
                 var data = {id:id, name:paramName, age:paramAge, password:password};
                 var query = conn.query('insert into users set ?', data, function(err, rows){

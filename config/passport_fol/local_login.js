@@ -28,7 +28,7 @@ module.exports = new LocalStrategy({
                 return done(null, {'id' : rows[0].id});
             } else {
                 console.log('사용자 찾지 못함');
-                return done(null, false, {message : '아이디를 찾지 못했습니다'});
+                return done(null, false, req.flash('loginMessage', '아이디를 찾지 못했습니다'));
             }
         });
     })

@@ -14,7 +14,7 @@ module.exports = function(router, passport){
     router.route('/login').get(function(req, res){
         console.log('/login 패스로 GET 요청됨');
 
-        res.render('login.ejs', {message: req.flash('loginMessage', '로그인')});
+        res.render('login.ejs', {message: req.flash('loginMessage')});
     });
 
     router.route('/login').post(passport.authenticate('local-login', {
@@ -26,7 +26,7 @@ module.exports = function(router, passport){
     router.route('/join').get(function(req, res){
         console.log('/join 패스로 GET 요청됨');
 
-        res.render('join.ejs', {message: req.flash('joinMessage', '회원가입')});
+        res.render('join.ejs', {message: req.flash('joinMessage')});
     });
 
     router.route('/join').post(passport.authenticate('local-join', {
