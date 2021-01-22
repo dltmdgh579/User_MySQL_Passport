@@ -4,22 +4,9 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var expressErrorHandler = require('express-error-handler');
 var expressSession = require('express-session');
-var crypto = require('crypto');
-
 
 var passport = require('passport');
 var flash = require('connect-flash');
-
-var salt = '';
-var pw = '';
-crypto.randomBytes(64, (err, buf) => {
-    if (err) throw err;
-    salt = buf.toString('hex');
-});
-crypto.pbkdf2('password', salt, 100000, 64, 'sha512', (err, derivedKey) => {
-    if (err) throw err;
-    pw = derivedKey.toString('hex');
-})
 
 var app = express();
 
