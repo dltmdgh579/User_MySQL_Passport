@@ -1,5 +1,4 @@
 var express = require('express');
-var http = require('http');
 var static = require('serve-static');
 var path = require('path');
 var bodyParser = require('body-parser');
@@ -63,7 +62,6 @@ var ErrorHandler = expressErrorHandler({
 app.use( expressErrorHandler.httpError(404) );
 app.use( ErrorHandler );
 
-var server = http.createServer(app);
 app.listen(app.get('port'), function(){
     console.log('server start : ' + app.get('port'));
 });
