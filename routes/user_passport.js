@@ -7,7 +7,7 @@ module.exports = function(router, passport){
         console.log('/ 패스로 요청됨');
 
         var id = req.user;
-        if(!id) res.render('login.ejs');
+        if(!id) res.render('login.ejs', {message: req.flash('')});
         res.render('home.ejs', {'id':id});
     });
 
